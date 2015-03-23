@@ -1,0 +1,13 @@
+/
+|- .gitignore
+|- README.md
+|- /Project
+    |- Unity Project Files
+|- /Submission
+    |- Game Design Document.pdf
+    |- /Windows Binary
+        |- Submission.exe
+        |- /Submission Data
+    |- /Mac Binary
+        |- Submission.app
+    |- Summary Feedback Evaluation.pdf
