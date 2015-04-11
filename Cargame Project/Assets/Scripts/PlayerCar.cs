@@ -250,7 +250,7 @@ public class PlayerCar : MonoBehaviour
     void OnGUI()
     {
         GUI.Label(new Rect(5.0f, 5.0f, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"));
-        //int gearDisplay = m_currentGear + 1;
+        int gearDisplay = m_currentGear + 1;
         GUI.Label(new Rect(5.0f, 25.0f, 200.0f, 30.0f), "Gear: " + m_currentGear.ToString());
     }
 }

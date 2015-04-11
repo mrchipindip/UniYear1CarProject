@@ -15,7 +15,7 @@ public class CameraSmoothFollow : MonoBehaviour
     // Look above the target (height * this ratio)
     public float targetHeightRatio = 0.5f;
     // How fast we reach the target values
-    public float heightDamping = 20.0f;
+    public float heightDamping = 2.0f;
 
     public float rotDamping = 20.0f;
 
