@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: 4553c3cfbffd1574581af983cb642956
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: fenetre_chambre_contour
+    100002: fenetre_chambre_fenetre poignet
+    100004: fenetre_chambre_fenetre Sym_trie2 Cube_11
+    100006: fenetre_chambre_fenetre Sym_trie3 vitre_1
+    100008: fenetre_chambre_Sym_trie1 Neutre Cube_1
+    100010: fenetre_chambre_Sym_trie1 Neutre Cube_22
+    100012: fenetre_chambre_Sym_trie1 Neutre Cube_41
+    100014: fenetre_chambre_Sym_trie1 Neutre Cube_5
+    100016: volet_chambre_piece_volet Cube
+    100018: volet_chambre_piece_volet Cube_2
+    100020: volet_chambre_piece_volet Cube_3
+    100022: volet_chambre_piece_volet Cube_4
+    100024: volet_chambre_Sym_trie volet Cube2
+    100026: volet_chambre_Sym_trie volet Cube3
+    100028: volet_chambre_Sym_trie volet Cube4
+    100030: volet_chambre_Sym_trie volet z Cube1
+    100032: volet_chambre_Sym_trie volet z Cube_21
+    100034: volet_chambre_Sym_trie volet z Cube_31
+    100036: //RootNode
+    400000: fenetre_chambre_contour
+    400002: fenetre_chambre_fenetre poignet
+    400004: fenetre_chambre_fenetre Sym_trie2 Cube_11
+    400006: fenetre_chambre_fenetre Sym_trie3 vitre_1
+    400008: fenetre_chambre_Sym_trie1 Neutre Cube_1
+    400010: fenetre_chambre_Sym_trie1 Neutre Cube_22
+    400012: fenetre_chambre_Sym_trie1 Neutre Cube_41
+    400014: fenetre_chambre_Sym_trie1 Neutre Cube_5
+    400016: volet_chambre_piece_volet Cube
+    400018: volet_chambre_piece_volet Cube_2
+    400020: volet_chambre_piece_volet Cube_3
+    400022: volet_chambre_piece_volet Cube_4
+    400024: volet_chambre_Sym_trie volet Cube2
+    400026: volet_chambre_Sym_trie volet Cube3
+    400028: volet_chambre_Sym_trie volet Cube4
+    400030: volet_chambre_Sym_trie volet z Cube1
+    400032: volet_chambre_Sym_trie volet z Cube_21
+    400034: volet_chambre_Sym_trie volet z Cube_31
+    400036: //RootNode
+    2300000: fenetre_chambre_contour
+    2300002: fenetre_chambre_fenetre poignet
+    2300004: fenetre_chambre_fenetre Sym_trie2 Cube_11
+    2300006: fenetre_chambre_fenetre Sym_trie3 vitre_1
+    2300008: fenetre_chambre_Sym_trie1 Neutre Cube_1
+    2300010: fenetre_chambre_Sym_trie1 Neutre Cube_22
+    2300012: fenetre_chambre_Sym_trie1 Neutre Cube_41
+    2300014: fenetre_chambre_Sym_trie1 Neutre Cube_5
+    2300016: volet_chambre_piece_volet Cube
+    2300018: volet_chambre_piece_volet Cube_2
+    2300020: volet_chambre_piece_volet Cube_3
+    2300022: volet_chambre_piece_volet Cube_4
+    2300024: volet_chambre_Sym_trie volet Cube2
+    2300026: volet_chambre_Sym_trie volet Cube3
+    2300028: volet_chambre_Sym_trie volet Cube4
+    2300030: volet_chambre_Sym_trie volet z Cube1
+    2300032: volet_chambre_Sym_trie volet z Cube_21
+    2300034: volet_chambre_Sym_trie volet z Cube_31
+    3300000: fenetre_chambre_contour
+    3300002: fenetre_chambre_fenetre poignet
+    3300004: fenetre_chambre_fenetre Sym_trie2 Cube_11
+    3300006: fenetre_chambre_fenetre Sym_trie3 vitre_1
+    3300008: fenetre_chambre_Sym_trie1 Neutre Cube_1
+    3300010: fenetre_chambre_Sym_trie1 Neutre Cube_22
+    3300012: fenetre_chambre_Sym_trie1 Neutre Cube_41
+    3300014: fenetre_chambre_Sym_trie1 Neutre Cube_5
+    3300016: volet_chambre_piece_volet Cube
+    3300018: volet_chambre_piece_volet Cube_2
+    3300020: volet_chambre_piece_volet Cube_3
+    3300022: volet_chambre_piece_volet Cube_4
+    3300024: volet_chambre_Sym_trie volet Cube2
+    3300026: volet_chambre_Sym_trie volet Cube3
+    3300028: volet_chambre_Sym_trie volet Cube4
+    3300030: volet_chambre_Sym_trie volet z Cube1
+    3300032: volet_chambre_Sym_trie volet z Cube_21
+    3300034: volet_chambre_Sym_trie volet z Cube_31
+    4300000: fenetre_chambre_contour
+    4300002: fenetre_chambre_fenetre poignet
+    4300004: fenetre_chambre_fenetre Sym_trie2 Cube_11
+    4300006: fenetre_chambre_fenetre Sym_trie3 vitre_1
+    4300008: fenetre_chambre_Sym_trie1 Neutre Cube_1
+    4300010: fenetre_chambre_Sym_trie1 Neutre Cube_22
+    4300012: fenetre_chambre_Sym_trie1 Neutre Cube_41
+    4300014: fenetre_chambre_Sym_trie1 Neutre Cube_5
+    4300016: volet_chambre_piece_volet Cube
+    4300018: volet_chambre_piece_volet Cube_2
+    4300020: volet_chambre_piece_volet Cube_3
+    4300022: volet_chambre_piece_volet Cube_4
+    4300024: volet_chambre_Sym_trie volet Cube2
+    4300026: volet_chambre_Sym_trie volet Cube3
+    4300028: volet_chambre_Sym_trie volet Cube4
+    4300030: volet_chambre_Sym_trie volet z Cube1
+    4300032: volet_chambre_Sym_trie volet z Cube_21
+    4300034: volet_chambre_Sym_trie volet z Cube_31
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
