@@ -12,6 +12,9 @@ public class PlayerCar : MonoBehaviour
     public Renderer carRenderer;
     public Transform centreOfMass;
   
+	public string inputForTurning = "";
+	public string inputForAccelerating = "";
+
     public WheelCollider frontLeftWheel;
     public WheelCollider frontRightWheel;
     public WheelCollider backLeftWheel;
@@ -38,6 +41,8 @@ public class PlayerCar : MonoBehaviour
     [Range(0.0f, 1000.0f)]
     public float brakeForceBack = 100.0f;
 
+	//stores the amount of boosts available
+	public int boosts = 0;
     //we use this for applying torque to the wheels, the lower the value the higher the torque
     public float[] gearRatio;
     private int m_currentGear = 0;
@@ -57,6 +62,8 @@ public class PlayerCar : MonoBehaviour
     private float m_downForce = 0;
 
     private float speed = 0;
+
+
 
 	// Use this for initialization
 	void Start () 
@@ -141,7 +148,7 @@ public class PlayerCar : MonoBehaviour
 
             if (speed < maximumSpeed)
             {
-                m_appliedTorque = engineTorque / gearRatio[m_currentGear] * Input.GetAxis("Vertical");
+                m_appliedTorque = engineTorque / gearRatio[m_currentGear] * Input.GetAxis(inputForAccelerating);
             }
             else
             {
@@ -160,8 +167,8 @@ public class PlayerCar : MonoBehaviour
         }
 
         // the steer angle is an arbitrary value multiplied by the user input.
-        frontLeftWheel.steerAngle = 25.0f * Input.GetAxis("Horizontal");
-        frontRightWheel.steerAngle = 25.0f * Input.GetAxis("Horizontal");
+        frontLeftWheel.steerAngle = 25.0f * Input.GetAxis(inputForTurning);
+        frontRightWheel.steerAngle = 25.0f * Input.GetAxis(inputForTurning);
 	}
 
     //this is where we apply braking, please experiment with different values
@@ -246,11 +253,20 @@ public class PlayerCar : MonoBehaviour
             m_currentGear = m_desiredGear;
 	    }
     }
+	//adds a passed amount of boosts to the players available boosts. With a limit of 3
+	public void addBoost(int newboost)
+	{
+		//the passed amount is added
+		boosts += newboost;
+		//checked to see if its over the amount, if it is, set to 3
+		if (boosts > 3){
+			boosts = 3;
+		}
+	}
 
     void OnGUI()
     {
         GUI.Label(new Rect(5.0f, 5.0f, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"));
-        int gearDisplay = m_currentGear + 1;
-        GUI.Label(new Rect(5.0f, 25.0f, 200.0f, 30.0f), "Gear: " + m_currentGear.ToString());
+        GUI.Label(new Rect(5.0f, 25.0f, 200.0f, 30.0f), "Gear: " + (m_currentGear + 1).ToString());
     }
 }
