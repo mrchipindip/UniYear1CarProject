@@ -63,7 +63,16 @@ public class PlayerCar : MonoBehaviour
 
     private float speed = 0;
 
+	//Variable used when boosting
+	private float boostSpeed = 1;
 
+	//stores the original rotation of the car at start
+	public Quaternion originalRotationValue;
+	public float rotationResetSpeed = 2.0f;
+
+	//stores the values of current lap and the total lap
+	public int currentLap = 0;
+	public int totalLaps = 3;
 
 	// Use this for initialization
 	void Start () 
@@ -127,6 +136,25 @@ public class PlayerCar : MonoBehaviour
                 ReleaseHandBrake();
         }
 
+		//test function for boost
+		if (Input.GetKeyUp(KeyCode.RightShift))
+		{
+			Debug.Log ("called the routine");
+			//check if the player has any available boosts
+			if (boosts > 0)
+			{
+				Debug.Log("Called");
+				//call the boost function
+				boosts -= 1;
+				StartCoroutine(BoostUsed());
+			}
+		}
+
+		//Call For the FlipCar Function
+		if (Input.GetKeyUp (KeyCode.Slash)) 
+		{
+			FlipCar();
+		}
         //here we apply the torque values to the wheels. If we brake we apply a brake torque, otherwise
         //we let the wheels spin freely or we accelarate when we press forward
         //IMPORTANT NOTE 1: this is applied only to the front wheels, if you need more control or you 
@@ -148,7 +176,7 @@ public class PlayerCar : MonoBehaviour
 
             if (speed < maximumSpeed)
             {
-                m_appliedTorque = engineTorque / gearRatio[m_currentGear] * Input.GetAxis(inputForAccelerating);
+                m_appliedTorque = engineTorque / gearRatio[m_currentGear] * Input.GetAxis(inputForAccelerating) * boostSpeed;
             }
             else
             {
@@ -258,15 +286,49 @@ public class PlayerCar : MonoBehaviour
 	{
 		//the passed amount is added
 		boosts += newboost;
+		Debug.Log ("BoostAdded");
 		//checked to see if its over the amount, if it is, set to 3
 		if (boosts > 3){
 			boosts = 3;
 		}
 	}
 
+	//Function called when a boost is used
+	IEnumerator BoostUsed()
+	{
+		//increases the variable value so that in the update the applied torque is multiplied by the new value
+		boostSpeed = 3;
+		yield return new WaitForSeconds (2.0f); //Wait the duration of the boost
+		Debug.Log("Variable reset");
+		boostSpeed = 1;//then reset the variable
+	}
+
+	//Function used to rotate the car if it flips over
+	void FlipCar()
+	{
+		Debug.Log ("Called FlipCar");
+		//sets the rotation of the car back to its original rotation
+		transform.rotation = Quaternion.Slerp (transform.rotation, originalRotationValue, Time.time * rotationResetSpeed);
+	}
+
+	//Adds a lap to current lap and checks to see if finsished
+	public void addLap()
+	{
+		currentLap = currentLap + 1;
+
+		//check if the previous lap was the final one
+		if (currentLap <= (totalLaps + 1))
+		{
+			Debug.Log("Player two finished");
+			//call function for player 1 finish
+			SendMessage("playerFinished", 1);
+		}
+	}
+
+
     void OnGUI()
     {
-        GUI.Label(new Rect(5.0f, 5.0f, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"));
-        GUI.Label(new Rect(5.0f, 25.0f, 200.0f, 30.0f), "Gear: " + (m_currentGear + 1).ToString());
+        GUI.Label(new Rect(5.0f, 480.0f, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"));
+		GUI.Label(new Rect(5.0f, 500.0f, 200.0f, 30.0f), "Boosts: " + boosts.ToString());
     }
 }
