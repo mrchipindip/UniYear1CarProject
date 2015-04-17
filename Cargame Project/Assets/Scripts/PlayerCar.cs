@@ -74,9 +74,21 @@ public class PlayerCar : MonoBehaviour
 	public int currentLap = 0;
 	public int totalLaps = 3;
 
+	private GameObject finishLine;
+	private GameObject startFinish;
+
+	private GameObject initialCamera;
+	private GameObject finishedCamera;
 	// Use this for initialization
 	void Start () 
     {
+		startFinish = GameObject.Find ("StartFinish");
+		//populate the variable gameobject wiht the startfinish line
+		finishLine = GameObject.Find("StartFinish");
+
+		initialCamera = GameObject.Find ("Main Camera Car One");
+		finishedCamera = GameObject.Find ("Finish Camera Car One");
+
         rigidbody.centerOfMass = centreOfMass.localPosition;
 
         //we calculate the down force coefficient using the formula: 
@@ -315,13 +327,18 @@ public class PlayerCar : MonoBehaviour
 	public void addLap()
 	{
 		currentLap = currentLap + 1;
+		Debug.Log ("addLap Called");
 
+		startFinish.collider.enabled = false;
 		//check if the previous lap was the final one
-		if (currentLap <= (totalLaps + 1))
+		if (currentLap >= (totalLaps + 1))
 		{
-			Debug.Log("Player two finished");
+			Debug.Log("Player one finished");
+			//switch to the finished camera
+			initialCamera.SetActive(false);
+			finishedCamera.SetActive(true);
 			//call function for player 1 finish
-			SendMessage("playerFinished", 1);
+			finishLine.SendMessage("playerFinished", 1);
 		}
 	}
 

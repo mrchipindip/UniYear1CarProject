@@ -73,10 +73,23 @@ public class PlayerCar2 : MonoBehaviour
 	//stores the values of current lap and the total lap
 	public int currentLap = 0;
 	public int totalLaps = 3;
-	
+
+	private GameObject finishLine;
+	private GameObject startFinish;
+
+	private GameObject initialCamera;
+	private GameObject finishedCamera;
 	// Use this for initialization
 	void Start () 
 	{
+		startFinish = GameObject.Find ("StartFinishCar2Collider");
+		//populate the variable gameobject wiht the startfinish line
+		finishLine = GameObject.Find("StartFinish");
+
+
+		initialCamera = GameObject.Find ("Main Camera Car Two");
+		finishedCamera = GameObject.Find ("FinishCamCarTwo");
+
 		//save teh initial rotation
 		originalRotationValue = transform.rotation;
 
@@ -313,13 +326,18 @@ public class PlayerCar2 : MonoBehaviour
 	public void addLap()
 	{
 		currentLap = currentLap + 1;
-		
+		Debug.Log ("addLap Called");
+
+		startFinish.collider.enabled = false;
 		//check if the previous lap was the final one
-		if (currentLap <= (totalLaps + 1))
+		if (currentLap >= (totalLaps + 1))
 		{
 			Debug.Log("Player two finished");
+			//switch to the finished camera
+			initialCamera.SetActive(false);
+			finishedCamera.SetActive(true);
 			//call function for player 2 finish
-			SendMessage("playerFinished", 2);
+			finishLine.SendMessage("playerFinished", 2);
 		}
 	}
 	
