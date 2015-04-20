@@ -7,10 +7,12 @@ public class CarBehaviour : MonoBehaviour {
 	public string collisionTag2 = "";
 	public string collisionTag3 = "";
 	public string collisionTag4 = "";
+	public string collisionTag5 = "";
 	public string startFinishInput = "";
 
 	public GameObject singleCar;
 	public GameObject resetPoint;
+	public GameObject resetPoint2;
 
 	public GameObject startFinish;
 
@@ -32,6 +34,10 @@ public class CarBehaviour : MonoBehaviour {
 			//do this (placeholder for boost collection)
 			singleCar.SendMessage("addBoost", 1);
 			Debug.Log ("message Sent");
+
+		} else if (other.gameObject.CompareTag (collisionTag5)) {
+			//REset the cars location to back on the track
+			singleCar.transform.position = resetPoint2.transform.position;
 		}
 	}
 

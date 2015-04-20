@@ -44,11 +44,11 @@ public class FinishLine : MonoBehaviour {
 			{
 				if (lastCarAcrossLine == 1)
 				{
-					//insert win switchin here for player 2
+
 					Debug.Log("Player 2 Wins!");
 				} else if (lastCarAcrossLine == 2)
 				{
-					//insert win switching here for player 2
+					//insert win switching here for player 1
 					Debug.Log ("Player 1 Wins!");
 				}
 			}

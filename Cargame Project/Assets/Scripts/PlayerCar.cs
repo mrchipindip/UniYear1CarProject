@@ -79,6 +79,8 @@ public class PlayerCar : MonoBehaviour
 
 	private GameObject initialCamera;
 	private GameObject finishedCamera;
+
+	public GameObject resetPoint;
 	// Use this for initialization
 	void Start () 
     {
@@ -88,7 +90,7 @@ public class PlayerCar : MonoBehaviour
 
 		initialCamera = GameObject.Find ("Main Camera Car One");
 		finishedCamera = GameObject.Find ("Finish Camera Car One");
-
+		finishedCamera.SetActive(false);
         rigidbody.centerOfMass = centreOfMass.localPosition;
 
         //we calculate the down force coefficient using the formula: 
@@ -136,17 +138,17 @@ public class PlayerCar : MonoBehaviour
             audio.pitch = 2.0f;
         }
 
-        if (Input.GetKey(KeyCode.RightShift))
-        {
+        //if (Input.GetKey(KeyCode.RightShift))
+        //{
             //apply braking
-            if (!m_isHandBraking)
-                HandBrake();
-        }
-        else
-        {
-            if(m_isHandBraking)
-                ReleaseHandBrake();
-        }
+        //    if (!m_isHandBraking)
+       //         HandBrake();
+       // }
+      //  else
+      //  {
+      //      if(m_isHandBraking)
+      //          ReleaseHandBrake();
+      //  }
 
 		//test function for boost
 		if (Input.GetKeyUp(KeyCode.RightShift))
@@ -166,6 +168,12 @@ public class PlayerCar : MonoBehaviour
 		if (Input.GetKeyUp (KeyCode.Slash)) 
 		{
 			FlipCar();
+		}
+
+		//Call For the ResetCar Function
+		if (Input.GetKeyUp (KeyCode.R)) 
+		{
+			ResetCar();
 		}
         //here we apply the torque values to the wheels. If we brake we apply a brake torque, otherwise
         //we let the wheels spin freely or we accelarate when we press forward
@@ -342,6 +350,14 @@ public class PlayerCar : MonoBehaviour
 		}
 	}
 
+	//resets the cars location to teh start of the lap and changes its rotation
+	void ResetCar()
+	{
+		//make the poition equal to the resetpoints poition
+		transform.position = resetPoint.transform.position;
+		//call FlipCar
+		FlipCar ();
+	}
 
     void OnGUI()
     {

@@ -79,6 +79,8 @@ public class PlayerCar2 : MonoBehaviour
 
 	private GameObject initialCamera;
 	private GameObject finishedCamera;
+
+	public GameObject resetPoint;
 	// Use this for initialization
 	void Start () 
 	{
@@ -86,10 +88,9 @@ public class PlayerCar2 : MonoBehaviour
 		//populate the variable gameobject wiht the startfinish line
 		finishLine = GameObject.Find("StartFinish");
 
-
 		initialCamera = GameObject.Find ("Main Camera Car Two");
 		finishedCamera = GameObject.Find ("FinishCamCarTwo");
-
+		finishedCamera.SetActive(false);
 		//save teh initial rotation
 		originalRotationValue = transform.rotation;
 
@@ -140,17 +141,17 @@ public class PlayerCar2 : MonoBehaviour
 			audio.pitch = 2.0f;
 		}
 		
-		if (Input.GetKey(KeyCode.RightShift))
-		{
+		//if (Input.GetKey(KeyCode.RightShift))
+		//{
 			//apply braking
-			if (!m_isHandBraking)
-				HandBrake();
-		}
-		else
-		{
-			if(m_isHandBraking)
-				ReleaseHandBrake();
-		}
+		//	if (!m_isHandBraking)
+		//		HandBrake();
+		//}
+		//else
+		//{
+		//	if(m_isHandBraking)
+	//			ReleaseHandBrake();
+	//	}
 		
 		//test function for boost
 		if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -163,8 +164,13 @@ public class PlayerCar2 : MonoBehaviour
 				StartCoroutine(BoostUsed());
 			}
 		}
+		//CallForThe Reset Function
+		if (Input.GetKeyUp(KeyCode.M))
+		{
+			ResetCar();
+		}
 		//Call For the FlipCar Function
-		if (Input.GetKeyUp (KeyCode.Z)) 
+		if (Input.GetKeyUp (KeyCode.E)) 
 		{
 			FlipCar();
 		}
@@ -340,7 +346,15 @@ public class PlayerCar2 : MonoBehaviour
 			finishLine.SendMessage("playerFinished", 2);
 		}
 	}
-	
+
+	//resets the cars location to teh start of the lap and changes its rotation
+	void ResetCar()
+	{
+		//make the poition equal to the resetpoints poition
+		transform.position = resetPoint.transform.position;
+		//call FlipCar
+		FlipCar ();
+	}
 	void OnGUI()
 	{
 		GUI.Label(new Rect(5.0f, 5.0f, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"));
