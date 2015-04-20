@@ -77,10 +77,16 @@ public class PlayerCar2 : MonoBehaviour
 	private GameObject finishLine;
 	private GameObject startFinish;
 
+	//holds the gameobjects for both the racing camera and the finished camera
 	private GameObject initialCamera;
 	private GameObject finishedCamera;
-
+	
+	//stores the gameobject at which location the car will be reset to if it fgoes outside the map
 	public GameObject resetPoint;
+
+	//holds the font to be used in my GUI
+	public Font myFont;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -165,7 +171,7 @@ public class PlayerCar2 : MonoBehaviour
 			}
 		}
 		//CallForThe Reset Function
-		if (Input.GetKeyUp(KeyCode.M))
+		if (Input.GetKeyUp(KeyCode.R))
 		{
 			ResetCar();
 		}
@@ -357,7 +363,13 @@ public class PlayerCar2 : MonoBehaviour
 	}
 	void OnGUI()
 	{
-		GUI.Label(new Rect(5.0f, 5.0f, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"));
-		GUI.Label (new Rect (5.0f, 25.0f, 200.0f, 30.0f), "Boosts: " + boosts.ToString ());
+		//create new style for the standard HUD
+		GUIStyle myStyle = new GUIStyle ();
+		myStyle.font = myFont; //make the font the passed public variable
+		myStyle.fontSize = 35; //make the size 35
+
+		GUI.Label(new Rect(5.0f, 5.0f, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"), myStyle);
+		GUI.Label (new Rect (5.0f, 45.0f, 200.0f, 30.0f), "Boosts: " + boosts.ToString (), myStyle);
+		GUI.Label(new Rect(Screen.width - 205.0f, 5.0f, 200.0f, 30.0f), "Lap: " + currentLap.ToString() + "/" + totalLaps.ToString(), myStyle);
 	}
 }

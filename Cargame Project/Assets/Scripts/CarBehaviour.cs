@@ -37,6 +37,7 @@ public class CarBehaviour : MonoBehaviour {
 
 		} else if (other.gameObject.CompareTag (collisionTag5)) {
 			//REset the cars location to back on the track
+			Debug.Log ("registered");
 			singleCar.transform.position = resetPoint2.transform.position;
 		}
 	}

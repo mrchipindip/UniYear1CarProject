@@ -77,10 +77,23 @@ public class PlayerCar : MonoBehaviour
 	private GameObject finishLine;
 	private GameObject startFinish;
 
+	//holds the gameobjects for both the racing camera and the finished camera
 	private GameObject initialCamera;
 	private GameObject finishedCamera;
 
+	//stores the current value of the countdown and the bool that ditermines if its on
+	private string countdown = "";
+	private bool showCountdown = false;
+
+	//stores the gameobject at which location the car will be reset to if it fgoes outside the map
 	public GameObject resetPoint;
+
+	//holds the font to be used in my GUI
+	public Font myFont;
+
+	//holds the gameobject that prevents the cars from going until the countdown is over
+	private GameObject startPrevention;
+
 	// Use this for initialization
 	void Start () 
     {
@@ -92,6 +105,8 @@ public class PlayerCar : MonoBehaviour
 		finishedCamera = GameObject.Find ("Finish Camera Car One");
 		finishedCamera.SetActive(false);
         rigidbody.centerOfMass = centreOfMass.localPosition;
+
+		startPrevention = GameObject.Find ("StartColliders");
 
         //we calculate the down force coefficient using the formula: 
         //d = 1/2 * (car.width * car.height) * car.airDrag * (car.velocity * car.velocity);
@@ -110,6 +125,8 @@ public class PlayerCar : MonoBehaviour
 
         //m_downForceCoefficient = widthHeightCoefficient * rigidbody.drag;
         //Debug.Log(m_downForceCoefficient);
+
+		StartCoroutine(StartCountdown());
 	}
 
     void FixedUpdate()
@@ -171,7 +188,7 @@ public class PlayerCar : MonoBehaviour
 		}
 
 		//Call For the ResetCar Function
-		if (Input.GetKeyUp (KeyCode.R)) 
+		if (Input.GetKeyUp (KeyCode.M)) 
 		{
 			ResetCar();
 		}
@@ -358,10 +375,53 @@ public class PlayerCar : MonoBehaviour
 		//call FlipCar
 		FlipCar ();
 	}
+	//step through a countdown on GUI
+	IEnumerator StartCountdown()    
+	{
+		//change bool value so that it is displayed on GUI
+		showCountdown = true;    
+
+		countdown = "3";    
+		yield return new WaitForSeconds (1.5f); //Wait before moving to next number 
+		
+		countdown = "2";    
+		yield return new WaitForSeconds (1.5f); //Wait before moving to next number 
+		
+		countdown = "1";    
+		yield return new WaitForSeconds (1.5f); //Wait before moving to next number 
+		
+		countdown = "GO!!";    
+		yield return new WaitForSeconds (1.5f); //Wait before moving to next number 
+
+		startPrevention.SetActive (false);
+		showCountdown = false;
+		countdown = "";  
+	}
 
     void OnGUI()
     {
-        GUI.Label(new Rect(5.0f, 480.0f, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"));
-		GUI.Label(new Rect(5.0f, 500.0f, 200.0f, 30.0f), "Boosts: " + boosts.ToString());
+		//create new style for the standard HUD
+		GUIStyle myStyle = new GUIStyle ();
+		myStyle.font = myFont; //make the font the passed public variable
+		myStyle.fontSize = 35; //make the size 35
+
+		GUIStyle countdownStyle = new GUIStyle ();
+		countdownStyle.font = myFont;
+		countdownStyle.fontSize = 45;
+
+        GUI.Label(new Rect(5.0f, 480.0f, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"), myStyle);
+		GUI.Label(new Rect(5.0f, 520.0f, 200.0f, 30.0f), "Boosts: " + boosts.ToString(), myStyle);
+		GUI.Label(new Rect(Screen.width - 205.0f, (Screen.height/2) + 10, 200.0f, 30.0f), "Lap: " + currentLap.ToString() + "/" + totalLaps.ToString(), myStyle);
+
+		//check if  countdown is running
+		if (showCountdown)
+		{    
+			GUI.color = Color.red;    
+			GUI.Label (new Rect (Screen.width / 2 - 100, 430.0f, 200.0f, 175.0f), "GET READY", countdownStyle);
+			
+			// display countdown    
+			GUI.color = Color.white;    
+			GUI.Label (new Rect (Screen.width / 2, 490.0f, 180.0f, 140.0f), countdown, countdownStyle);
+		} 
     }
 }
