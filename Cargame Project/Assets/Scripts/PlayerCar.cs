@@ -94,6 +94,11 @@ public class PlayerCar : MonoBehaviour
 	//holds the gameobject that prevents the cars from going until the countdown is over
 	private GameObject startPrevention;
 
+	//holds all of the audio for the countdown
+	public AudioSource countdown1;
+	public AudioSource countdown2;
+	public AudioSource countdown3;
+	public AudioSource countdown4;
 	// Use this for initialization
 	void Start () 
     {
@@ -382,16 +387,19 @@ public class PlayerCar : MonoBehaviour
 		showCountdown = true;    
 
 		countdown = "3";    
+		countdown1.Play ();
 		yield return new WaitForSeconds (1.5f); //Wait before moving to next number 
 		
-		countdown = "2";    
+		countdown = "2";
+		countdown2.Play ();
 		yield return new WaitForSeconds (1.5f); //Wait before moving to next number 
 		
-		countdown = "1";    
+		countdown = "1";
+		countdown3.Play ();
 		yield return new WaitForSeconds (1.5f); //Wait before moving to next number 
 		
-		countdown = "GO!!";    
-		yield return new WaitForSeconds (1.5f); //Wait before moving to next number 
+		countdown = "GO!!";
+		countdown4.Play ();
 
 		startPrevention.SetActive (false);
 		showCountdown = false;

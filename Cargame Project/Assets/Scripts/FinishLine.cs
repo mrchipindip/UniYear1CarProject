@@ -18,6 +18,7 @@ public class FinishLine : MonoBehaviour {
 	void Update () {
 	
 	}
+	
 
 	public void playerFinished(int playerNum)
 	{
@@ -44,11 +45,13 @@ public class FinishLine : MonoBehaviour {
 			{
 				if (lastCarAcrossLine == 1)
 				{
-
+					//load the player two win screen
+					Application.LoadLevel("Player2Win");
 					Debug.Log("Player 2 Wins!");
 				} else if (lastCarAcrossLine == 2)
 				{
-					//insert win switching here for player 1
+					//load the player one win screen
+					Application.LoadLevel("Player1Win");
 					Debug.Log ("Player 1 Wins!");
 				}
 			}
@@ -56,5 +59,7 @@ public class FinishLine : MonoBehaviour {
 		Debug.Log (playerOneFinished);
 		Debug.Log (playerTwoFinished);
 	}
+
+
 
 }
