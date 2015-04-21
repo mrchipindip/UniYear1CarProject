@@ -28,4 +28,13 @@ public class GUIControl : MonoBehaviour {
 		}
 
 	}
+
+	public void ToggleMute(){
+		//AudioListener is outputing sounds at volume, mute. if not unmute
+		if(AudioListener.volume == 1){
+			AudioListener.volume = 0;
+		}else {
+			AudioListener.volume = 1;
+		}
+	}
 }

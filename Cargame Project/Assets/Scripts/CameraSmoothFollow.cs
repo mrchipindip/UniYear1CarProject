@@ -4,7 +4,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CameraSmoothFollow : MonoBehaviour 
+public class CameraSmoothFollow2 : MonoBehaviour 
 {
     //// The target we are following
     public Transform target;
@@ -41,10 +41,7 @@ public class CameraSmoothFollow : MonoBehaviour
     public float shakeDecay = 2.0f;
 
     private float m_shakeInt = 0;
-    //
-    //private ParticleSystem speedParticles;
-    //
-    private float speedShake = 0.0f;
+
     //
     private Transform camTransform;
     //private var desiredPosition : Vector3;
@@ -88,6 +85,12 @@ public class CameraSmoothFollow : MonoBehaviour
 
     private Camera camMain;
 
+	public GameObject resetPoint;
+
+	void Start()
+	{
+		transform.position = resetPoint.transform.position;
+	}
     void OnEnable()
     {
         //EventManagerJavaScript.onBrake += OnBrake;
@@ -97,7 +100,7 @@ public class CameraSmoothFollow : MonoBehaviour
 	    //speedParticles = transform.GetComponentInChildren<ParticleSystem>() as ParticleSystem;
 	    //speedParticles.emissionRate = 0;
 	    //speedParticles.active = false;
-	    //ResetCamera();
+	    ResetCamera();
 
 	    isBrakeOn = false;
 	    //camTransform = transform.Find("MainCamera");
@@ -109,16 +112,7 @@ public class CameraSmoothFollow : MonoBehaviour
         startDistance = distance;
 	    Reset();
     }
-
-    void OnDisable()
-    {
-        //EventManagerJavaScript.onBrake -= OnBrake;
-        //EventManagerJavaScript.onSpeeding -= OnSpeeding;
-        //EventManagerJavaScript.onKillSpeeding -= OnKillSpeeding;
-
-	    //speedParticles.emissionRate = 0;
-    }
-
+	
     private void Reset()
     {
         distance = startDistance;
@@ -126,38 +120,6 @@ public class CameraSmoothFollow : MonoBehaviour
         preOccludedDistance = distance;
     }
 
-    //private void OnBrake(bool brakeValue)
-    //{
-    //    if(brakeValue)
-    //    {
-    //        isBrakeOn = true;
-    //    }
-    //    else
-    //    {
-    //        isBrakeOn = false;
-    //    }
-    //}
-
-    private void OnSpeeding(float speedingValue)
-    {
-	    //speedShake = shakeIntensity * speedingValue;
-	    //DoShake(shakeVal);
-	
-	    //speedParticles.emissionRate = 15;
-	
-    //	if(!speedParticles.active)
-    //    	speedParticles.active = true;
-    	
-        //speedParticles.emissionRate = 15 * speedingValue;
-    }
-
-    private void OnKillSpeeding()
-    {
-	    //speedShake = 0;
-	    //speedParticles.emissionRate = 0.0f;
-    //	if(speedParticles.active)
-    //		speedParticles.active = false;
-    }
 
     private void ResetCamera()
     {
@@ -185,22 +147,6 @@ public class CameraSmoothFollow : MonoBehaviour
 	
 	    UpdatePosition();
 	
-    //	if (reset)
-    //		{
-    //		lastPos = target.position;
-    //		wantedRotationAngle = target.eulerAngles.y;
-    //		currentVelocity = target.forward * 2.0;
-    //		reset = false;
-    //		}
-    //		
-    ////	var count = 0;
-    ////	do
-    ////	{
-    ////		CalculateDesiredPosition();
-    ////		count++;
-    ////	} while (CheckIfOcculded(count));
-    //	CalculateDesiredPosition();
-    //	UpdatePosition();
     }
 
     private bool CheckIfOcculded(int count)
@@ -327,8 +273,7 @@ public class CameraSmoothFollow : MonoBehaviour
 		
 		    if(!cameraShake)
 		    return;
-		
-		    //m_shakeInt = speedShake;
+
 		
 		    if(m_shakeInt > 0)
 	        {
@@ -358,7 +303,6 @@ public class CameraSmoothFollow : MonoBehaviour
 
     private Vector3 CalculatePosition(float distance)
         {
-            var direction = new Vector3(0.0f, 0.0f, -distance);
             var currentRotationAngle = camTransform.eulerAngles.y;
             
             // Damp the rotation around the y-axis
@@ -407,7 +351,7 @@ public class CameraSmoothFollow : MonoBehaviour
 
 	    return tempPosition;
     }
-
+	
     private void ResetDesiredDistance()
     {
 	    if(desiredDistance < preOccludedDistance)

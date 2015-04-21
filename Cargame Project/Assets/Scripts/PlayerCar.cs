@@ -417,8 +417,8 @@ public class PlayerCar : MonoBehaviour
 		countdownStyle.font = myFont;
 		countdownStyle.fontSize = 45;
 
-        GUI.Label(new Rect(5.0f, 480.0f, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"), myStyle);
-		GUI.Label(new Rect(5.0f, 520.0f, 200.0f, 30.0f), "Boosts: " + boosts.ToString(), myStyle);
+        GUI.Label(new Rect(5.0f, Screen.height/2 + 10, 200.0f, 30.0f), "Speed: " + speed.ToString("#0.00"), myStyle);
+		GUI.Label(new Rect(5.0f, Screen.height/2 + 50, 200.0f, 30.0f), "Boosts: " + boosts.ToString(), myStyle);
 		GUI.Label(new Rect(Screen.width - 205.0f, (Screen.height/2) + 10, 200.0f, 30.0f), "Lap: " + currentLap.ToString() + "/" + totalLaps.ToString(), myStyle);
 
 		//check if  countdown is running
