@@ -6,20 +6,20 @@ Submission README
 Personal Details (Students Fill In Below)
 ===
 ---
-- **Student Name**:
-- **Student Number**:
+- **Student Name**:Christopher Louis Barton Wesemael
+- **Student Number**:10493143
 
 
 - **Course**: Computing & Games Development
 - **Module**: AINT102
-- **Assignment Title**:
+- **Assignment Title**:Unity 3D Individual Project
 
 
-1. **Blog Link**:
+1. **Blog Link**: http://chriswesemael.tumblr.com/
 2. **Screen Capture Link**:
 3. **Credits**
  * Unity Template - Interactive Systems Studio 2015
- *
+ * Kevin Macleod:- all of the background music used
 ---
 
 
