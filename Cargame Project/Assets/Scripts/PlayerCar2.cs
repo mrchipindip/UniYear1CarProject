@@ -78,7 +78,7 @@ public class PlayerCar2 : MonoBehaviour
 	private GameObject startFinish;
 
 	//holds the gameobjects for both the racing camera and the finished camera
-	private GameObject initialCamera;
+	public GameObject initialCamera;
 	private GameObject finishedCamera;
 	
 	//stores the gameobject at which location the car will be reset to if it fgoes outside the map
@@ -94,7 +94,7 @@ public class PlayerCar2 : MonoBehaviour
 		//populate the variable gameobject wiht the startfinish line
 		finishLine = GameObject.Find("StartFinish");
 
-		initialCamera = GameObject.Find ("Main Camera Car Two");
+		//initialCamera = GameObject.Find ("Main Camera Car Two");
 		finishedCamera = GameObject.Find ("FinishCamCarTwo");
 		finishedCamera.SetActive(false);
 		//save teh initial rotation
@@ -119,6 +119,7 @@ public class PlayerCar2 : MonoBehaviour
 		
 		//m_downForceCoefficient = widthHeightCoefficient * rigidbody.drag;
 		//Debug.Log(m_downForceCoefficient);
+        //StartCoroutine(loadCameraObject());
 	}
 	
 	void FixedUpdate()
@@ -361,6 +362,14 @@ public class PlayerCar2 : MonoBehaviour
 		//call FlipCar
 		FlipCar ();
 	}
+
+    IEnumerator loadCameraObject()
+    {
+        yield return new WaitForSeconds(0.01f);
+
+        initialCamera = GameObject.Find("FinishCamCarTwo");
+    }
+
 	void OnGUI()
 	{
 		//create new style for the standard HUD

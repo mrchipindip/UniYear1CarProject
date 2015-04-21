@@ -1,0 +1,45 @@
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 770 (ID=0x1184)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Chippy Work\AINT102\Cargame repo\Submission\Windows Executable\BedVroom WinBuild_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Chippy Work\AINT102\Cargame repo\Submission\Windows Executable\BedVroom WinBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Chippy Work\AINT102\Cargame repo\Submission\Windows Executable\BedVroom WinBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Chippy Work\AINT102\Cargame repo\Submission\Windows Executable\BedVroom WinBuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Chippy Work\AINT102\Cargame repo\Submission\Windows Executable\BedVroom WinBuild_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading E:\Chippy Work\AINT102\Cargame repo\Submission\Windows Executable\BedVroom WinBuild_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: E:\Chippy Work\AINT102\Cargame repo\Submission\Windows Executable\BedVroom WinBuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Chippy Work\AINT102\Cargame repo\Submission\Windows Executable\BedVroom WinBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.077 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: E:\Chippy Work\AINT102\Cargame repo\Submission\Windows Executable\BedVroom WinBuild_Data\Managed\System.Core.dll (this message is harmless)
+WARNING: Shader Unsupported: 'Hidden/Nature/Tree Creator Leaves Optimized' - Pass '' shader state not supported
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+Platform assembly: E:\Chippy Work\AINT102\Cargame repo\Submission\Windows Executable\BedVroom WinBuild_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 14.016338 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 8631.
+Total: 1.212401 ms (FindLiveObjects: 0.237565 ms CreateObjectMapping: 0.027135 ms MarkObjects: 0.308476 ms  DeleteObjects: 0.390651 ms)
+
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+UnloadTime: 18.810648 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 8645.
+Total: 1.036531 ms (FindLiveObjects: 0.231421 ms CreateObjectMapping: 0.031487 ms MarkObjects: 0.329467 ms  DeleteObjects: 0.142590 ms)
+
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+UnloadTime: 19.206163 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 8499.
+Total: 1.627627 ms (FindLiveObjects: 0.297468 ms CreateObjectMapping: 0.029695 ms MarkObjects: 0.528633 ms  DeleteObjects: 0.536057 ms)
+
+WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported

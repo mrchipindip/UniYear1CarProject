@@ -78,7 +78,7 @@ public class PlayerCar : MonoBehaviour
 	private GameObject startFinish;
 
 	//holds the gameobjects for both the racing camera and the finished camera
-	private GameObject initialCamera;
+	public GameObject initialCamera;
 	private GameObject finishedCamera;
 
 	//stores the current value of the countdown and the bool that ditermines if its on
@@ -106,7 +106,7 @@ public class PlayerCar : MonoBehaviour
 		//populate the variable gameobject wiht the startfinish line
 		finishLine = GameObject.Find("StartFinish");
 
-		initialCamera = GameObject.Find ("Main Camera Car One");
+		//initialCamera = GameObject.Find ("Main Camera Car One");
 		finishedCamera = GameObject.Find ("Finish Camera Car One");
 		finishedCamera.SetActive(false);
         rigidbody.centerOfMass = centreOfMass.localPosition;
@@ -130,7 +130,7 @@ public class PlayerCar : MonoBehaviour
 
         //m_downForceCoefficient = widthHeightCoefficient * rigidbody.drag;
         //Debug.Log(m_downForceCoefficient);
-
+        StartCoroutine(loadCameraObject2());
 		StartCoroutine(StartCountdown());
 	}
 
@@ -406,6 +406,13 @@ public class PlayerCar : MonoBehaviour
 		countdown = "";  
 	}
 
+    IEnumerator loadCameraObject2()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        initialCamera = GameObject.Find("Main Camera Car One");
+    }
+
     void OnGUI()
     {
 		//create new style for the standard HUD
@@ -425,11 +432,11 @@ public class PlayerCar : MonoBehaviour
 		if (showCountdown)
 		{    
 			GUI.color = Color.red;    
-			GUI.Label (new Rect (Screen.width / 2 - 100, 430.0f, 200.0f, 175.0f), "GET READY", countdownStyle);
+			GUI.Label (new Rect (Screen.width / 2 - 100, Screen.height / 2 - 50, 200.0f, 175.0f), "GET READY", countdownStyle);
 			
 			// display countdown    
-			GUI.color = Color.white;    
-			GUI.Label (new Rect (Screen.width / 2, 490.0f, 180.0f, 140.0f), countdown, countdownStyle);
+			GUI.color = Color.white;
+            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2 + 25, 180.0f, 140.0f), countdown, countdownStyle);
 		} 
     }
 }
