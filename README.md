@@ -16,7 +16,7 @@ Personal Details (Students Fill In Below)
 
 
 1. **Blog Link**: http://chriswesemael.tumblr.com/
-2. **Screen Capture Link**:
+2. **Screen Capture Link**: https://www.youtube.com/watch?v=GOUW-Z3KL6Q&feature=youtu.be
 3. **Credits**
  * Unity Template - Interactive Systems Studio 2015
  * Kevin Macleod:- all of the background music used
