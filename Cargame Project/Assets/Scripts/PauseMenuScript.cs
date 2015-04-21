@@ -7,6 +7,9 @@ public class PauseMenuScript : MonoBehaviour
 	public string levelToLoad;
 	public bool paused = false;
 	public Font myFont;
+    public GameObject cameraOne;
+    public GameObject cameraTwo;
+    public GameObject cameraReset;
 	
 	private void Start()
 	{
@@ -29,8 +32,10 @@ public class PauseMenuScript : MonoBehaviour
 		if(paused)
 			Time.timeScale = 0;  //set the timeScale to 0 so that the game stops
 		else
+            cameraOne.transform.position = cameraReset.transform.position;
+            cameraTwo.transform.position = cameraReset.transform.position;
 			Time.timeScale = 1;  //revert it when unpausing
-		
+        
 	}
 	
 	private void OnGUI()
